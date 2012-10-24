@@ -12,8 +12,8 @@
 		<h3>Submitted Ideas</h3>
 
 		{% for idea in ideas %}
-			<h4><a href="/ideas/{{ idea.slug }}">{{ idea.title }}</a></h4>
-			<p>by {{ idea.creator }}</p>
+			<h4><a href="/ideas/{{ idea.slug }}">{{ idea.birthplace }}</a></h4>
+			<p>by {{ idea.name }}</p>
 			<p>
 			{% for cat in idea.categories %}
 				<span class="label label-inverse"><a href="/category/{{ cat}}">{{ cat|replace("_"," ")}}</a></span>
@@ -43,39 +43,36 @@
 			    </ul>
 			{% endif %}
 
-			{{ form.creator.label(class='myLabelCssClass') }}
-			{{ form.creator(class='myTextboxCssClass') }}
+			{{ form.name.label(class='myLabelCssClass') }}
+			{{ form.name(class='myTextboxCssClass') }}
 			
 			
-			<label for="creator">First Name</label>
-			<input type="text" id="creator" name="creator" value="{{ form.creator }}">
+			<!-- <label for="name">First Name</label>
+			<input type="text" id="name" name="name" value="{{ form.name }}"> -->
 			
 			
-			{{ form.title.label(class='myLabelCssClass') }}
-			{{ form.title(class='myTextboxCssClass') }}
+			{{ form.birthplace.label(class='myLabelCssClass') }}
+			{{ form.birthplace(class='myTextboxCssClass') }}
 			
 			
-			<label for="title">Project Title</label>
-			<input type="text" id="title" name="title">
-			
-			{{ form.idea.label }}
-			{{ render_textarea(form.idea, cols="50", rows="6") }} {# render_textarea inside _form_helpers.html #}
+			{{ form.citizenship.label(class='myLabelCssClass') }}
+			{{ form.citizenship(class='myTextboxCssClass') }}
+
+			{{ form.longest_residence.label(class='myLabelCssClass') }}
+			{{ form.longest_residence(class='myTextboxCssClass') }}
+
+			{{ form.language.label(class='myLabelCssClass') }}
+			{{ form.language(class='myTextboxCssClass') }}
+
+			{{ form.countries_lived.label(class='myLabelCssClass') }}
+			{{ form.countries_lived(class='myTextboxCssClass') }}
+
 			
 
 			<br>
-			<!-- <label>Category</label>
-			<span class="help-block">Select as many as you need.</span>
-
 			
-			{# comment - loop through categories and create checkboxes #}
-			{% for c in categories|sort %}
-			<label class="checkbox">
-			<input type="checkbox" name="categories" value="{{ c|replace(" ","_") }}" {% if c|replace(" ","_") in form.categories.data %}checked=checked{% endif %} > {{ c|title }}
-			</label>
-			{% endfor %} -->
 
-
-			<button type="submit" class="btn btn-primary">Add Idea</button>
+			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
 

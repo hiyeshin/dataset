@@ -9,30 +9,30 @@ class Log(Document):
 	text = StringField()
 	timestamp = DateTimeField(default=datetime.now())
 
-class Comment(EmbeddedDocument):
-	name = StringField()
-	comment = StringField()
-	timestamp = DateTimeField(default=datetime.now())
+# class Comment(EmbeddedDocument):
+# 	name = StringField()
+# 	comment = StringField()
+# 	timestamp = DateTimeField(default=datetime.now())
 
-class Idea(Document):
+class User(Document):
 
-	creator = StringField(max_length=120, required=True, verbose_name="First name")
-	title = StringField(max_length=120, required=True)
-	slug = StringField()
-	idea = StringField(required=True, verbose_name="What is your idea?")
-
-	# Category is a list of Strings
-	categories = ListField(StringField(max_length=30))
-
-	# # Comments is a list of Document type 'Comments' defined above
-	# comments = ListField( EmbeddedDocumentField(Comment) )
-
+	name = StringField(max_length=120, required=True, verbose_name="What's your name?")
+	birthplace = StringField(max_length=120, required=True, verbose_name = "In what country were you born?")
+	citizenship = StringField(required = True, verbose_name = "Where do you hold your citizenship?")
+	longest_residence = StringField(required=True, verbose_name="What country have you lived in longest?")
+	language = StringField(required=True, verbose_name="What languages can you speak?")
+	countries_lived = StringField(required=True, verbose_name = "In what countries have you lived?")
 	# Timestamp will record the date and time idea was created.
 	timestamp = DateTimeField(default=datetime.now())
 
 
 # Create a Validation Form from the Idea model
-IdeaForm = model_form(Idea)
+UserForm = model_form(User)
 
-	
+#name
+#demographic data (where were you born)
+#contry of citizenship
+# what country have you been lived longest?
+# what language can you speak?
+#
 
